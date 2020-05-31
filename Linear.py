@@ -9,21 +9,22 @@ data = np.array([[152,51],[156,53],[160,54],[164,55],
 
 # 打印出数组的大小
 print(data.shape)
-data.
-# # TODO 1. 实例化一个线性回归的模型
-# linear = LinearRegression()
-# # TODO 2. 在x,y上训练一个线性回归模型。 如果训练顺利，则regr会存储训练完成之后的结果模型
-# linear.fit
-# # TODO 3. 画出身高与体重之间的关系
-#
-#
-# # 画出已训练好的线条
-# plt.plot(x, regr.predict(x), color='blue')
-#
-# # 画x,y轴的标题
-# plt.xlabel('height (cm)')
-# plt.ylabel('weight (kg)')
-# plt.show() # 展示
-#
-# # 利用已经训练好的模型去预测身高为163的人的体重
-# print ("Standard weight for person with 163 is %.2f"% regr.predict([[163]]))
+x = data[:, 0].reshape(-1, 1)
+y = data[:, 1]
+
+# TODO 1. 实例化一个线性回归的模型
+regr = linear_model.LinearRegression()
+# TODO 2. 在x,y上训练一个线性回归模型。 如果训练顺利，则regr会存储训练完成之后的结果模型
+regr.fit(x, y)
+# TODO 3. 画出身高与体重之间的关系
+
+# 画出已训练好的线条
+plt.plot(x, regr.predict(x), color='blue')
+
+# 画x,y轴的标题
+plt.xlabel('height (cm)')
+plt.ylabel('weight (kg)')
+plt.show() # 展示
+
+# 利用已经训练好的模型去预测身高为163的人的体重
+print ("Standard weight for person with 163 is %.2f"% regr.predict([[163]]))
